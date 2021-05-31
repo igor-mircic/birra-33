@@ -1,0 +1,13 @@
+// @import "~/node_modules/@fontsource/fira-sans/latin-500.css";
+@use "~/node_modules/@fontsource/fira-sans/scss/mixins" as FiraSans;
+
+@include FiraSans.fontFace($weight: 500);
+
+*,
+*::before,
+*::after {
+  font-family: FiraSans.$fontName;
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+}
