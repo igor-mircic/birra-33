@@ -1,0 +1,16 @@
+<div class="name">
+  <h5>Name filter</h5>
+</div>
+<div class="price">
+  <h5>Price filter</h5>
+</div>
+<div class="categories">
+  <h5 class="categories__title">Categories</h5>
+  <ul class="categories__list">
+    {{#each categories}}
+    <li class="categories__item">
+      <a href="" onclick="return false;" class="categories__link">{{ this }}</a>
+      {{/each}}
+    </li>
+  </ul>
+</div>

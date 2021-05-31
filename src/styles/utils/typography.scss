@@ -1,7 +1,8 @@
-// @import "~/node_modules/@fontsource/fira-sans/latin-500.css";
 @use "~/node_modules/@fontsource/fira-sans/scss/mixins" as FiraSans;
+@use "~/node_modules/@fontsource/alegreya/scss/mixins" as Alegreya;
 
 @include FiraSans.fontFace($weight: 500);
+@include Alegreya.fontFace($weight: 700);
 
 *,
 *::before,
@@ -10,4 +11,28 @@
   padding: 0;
   margin: 0;
   font-size: 16px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Alegreya.$fontName;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+h4 {
+  font-size: 21px;
+}
+
+h5 {
+  font-size: 18px;
+}
+
+p,
+a {
+  font-size: 14px;
 }
