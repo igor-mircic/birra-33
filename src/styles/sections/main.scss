@@ -1,3 +1,9 @@
 .main {
-  background-color: $clr-yello-500;
+  display: grid;
+  grid-template-rows: 105px 1fr;
+  & .toolbar {
+    display: grid;
+    grid-template-rows: 50px 55px;
+    grid-template-columns: 70px 1fr 1fr;
+  }
 }
