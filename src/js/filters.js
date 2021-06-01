@@ -45,5 +45,5 @@ priceSlider.noUiSlider.on("update.on", () => {
 
 // Read the slider value.
 priceSet.addEventListener("click", function () {
-  priceDisplay.innerHTML = priceSlider.noUiSlider.get();
+  console.log(priceSlider.noUiSlider.get());
 });

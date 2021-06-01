@@ -5,8 +5,8 @@
 
   & h5 {
     color: $clr-orange-400;
-    padding-top: 52px;
-    padding-bottom: 28px;
+    padding-top: 38px;
+    padding-bottom: 14px;
   }
 
   & p {
@@ -53,6 +53,27 @@
       }
       & .noUi-connect {
         background-color: $clr-orange-400;
+      }
+    }
+    & .date {
+      display: grid;
+      &__label {
+        padding-bottom: 8px;
+        padding-top: 20px;
+        text-transform: uppercase;
+      }
+      &__input {
+        background-color: $clr-gray-50;
+        color: $clr-brown-400;
+        line-height: 35px;
+        padding-left: 8px;
+        border: none;
+        border-bottom: 2px solid $clr-orange-500;
+        &:focus {
+          border: none;
+          outline: none;
+          border-bottom: 2px solid $clr-orange-400;
+        }
       }
     }
     & .food {
