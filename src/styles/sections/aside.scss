@@ -20,7 +20,7 @@
 
   & .filters {
     background-color: $clr-yello-500;
-    padding-left: 30px;
+    padding: 0 30px;
     & .name {
       &__input {
         background-color: $clr-gray-50;
@@ -34,6 +34,25 @@
           outline: none;
           border-bottom: 2px solid $clr-orange-400;
         }
+      }
+    }
+    & .price {
+      display: grid;
+      gap: 16px;
+      &__set {
+        border: none;
+        padding: 16px 35px;
+        justify-self: end;
+        text-transform: uppercase;
+        color: $clr-gray-50;
+        background-color: $clr-orange-400;
+      }
+      &__display {
+        place-self: end;
+        color: $clr-brown-400;
+      }
+      & .noUi-connect {
+        background-color: $clr-orange-400;
       }
     }
     & .food {
