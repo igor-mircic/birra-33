@@ -1,7 +1,7 @@
 import filters from "../templates/filters.handlebars";
 
 let context = {
-  categories: [
+  food: [
     "Ale",
     "Blonde",
     "Citer",

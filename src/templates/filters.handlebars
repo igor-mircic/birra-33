@@ -4,13 +4,17 @@
 <div class="price">
   <h5>Price filter</h5>
 </div>
-<div class="categories">
-  <h5 class="categories__title">Categories</h5>
-  <ul class="categories__list">
-    {{#each categories}}
-    <li class="categories__item">
-      <a href="" onclick="return false;" class="categories__link">{{ this }}</a>
-      {{/each}}
-    </li>
-  </ul>
+<div class="date">
+  <h5>Date filter</h5>
+</div>
+<div class="food">
+  <h5 class="food__title">Food filter</h5>
+  <form action="" class="food__list">
+    {{#each food}}
+    <label for="{{ this }}">
+      <input type="radio" name="food" id="{{ this }}" />
+      {{ this }}
+    </label>
+    {{/each}}
+  </form>
 </div>
