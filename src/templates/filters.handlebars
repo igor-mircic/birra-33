@@ -9,12 +9,12 @@
 </div>
 <div class="food">
   <h5 class="food__title">Food filter</h5>
-  <form action="" class="food__list">
+  <div class="food__list">
     {{#each food}}
     <label for="{{ this }}">
       <input type="radio" name="food" id="{{ this }}" />
       {{ this }}
     </label>
     {{/each}}
-  </form>
+  </div>
 </div>
