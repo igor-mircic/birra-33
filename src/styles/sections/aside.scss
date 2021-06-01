@@ -21,6 +21,21 @@
   & .filters {
     background-color: $clr-yello-500;
     padding-left: 30px;
+    & .name {
+      &__input {
+        background-color: $clr-gray-50;
+        color: $clr-brown-400;
+        line-height: 35px;
+        padding-left: 8px;
+        border: none;
+        border-bottom: 2px solid $clr-orange-500;
+        &:focus {
+          border: none;
+          outline: none;
+          border-bottom: 2px solid $clr-orange-400;
+        }
+      }
+    }
     & .food {
       &__list {
         position: relative;
@@ -50,23 +65,6 @@
             top: 3px;
             left: 0;
           }
-        }
-      }
-      &__link {
-        color: $clr-brown-400;
-        text-decoration: none;
-        text-transform: uppercase;
-        &:link {
-          color: $clr-brown-400;
-        }
-        &:visited {
-          color: $clr-brown-400;
-        }
-        &:hover {
-          color: $clr-brown-400;
-        }
-        &:active {
-          color: $clr-brown-400;
         }
       }
     }
