@@ -74,6 +74,19 @@
         background-color: $clr-yello-500;
         height: 100%;
         width: 100%;
+
+        display: grid;
+      }
+      &:hover > .product__wraper {
+        background: none;
+        transition: background 300ms ease-in-out;
+      }
+      &__thumb {
+        height: 100%;
+        width: 100%;
+
+        grid-area: 1 / 1 / -1 / -1;
+
         display: grid;
         place-items: center;
       }
@@ -84,6 +97,38 @@
       &__price {
         color: $clr-orange-400;
       }
+      &__hover {
+        height: 100%;
+        width: 100%;
+        border: none;
+        grid-area: 1 / 1 / -1 / -1;
+        align-self: start;
+        filter: opacity(0%);
+        background: none;
+
+        position: relative;
+        &:before {
+          font-family: "font awesome 5 free";
+          font-weight: 900;
+          content: "\f0c1";
+          color: $clr-gray-50;
+          font-size: 44px;
+          text-shadow: -4px 3px 0px rgba(0, 0, 0, 0.4);
+
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 100px;
+        }
+        &:hover {
+          filter: opacity(100%);
+          transition: filter 100ms ease-in-out;
+          &:before {
+            bottom: 200px;
+            transition: bottom 300ms ease-out;
+          }
+        }
+      }
       &__add {
         background-color: $clr-orange-300;
         color: $clr-gray-50;
@@ -93,6 +138,10 @@
 
         display: grid;
         place-items: center;
+        &:hover {
+          background-color: $clr-orange-400;
+          transition: background-color 300ms ease-in-out;
+        }
       }
     }
   }

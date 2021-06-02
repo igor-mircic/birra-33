@@ -2,8 +2,11 @@
   {{#each this}}
   <li class="product">
     <div class="product__wraper">
-      <img class="product__img" src="{{ this.img }}" alt="beer" />
-      <p class="product__price">{{ this.price }}</p>
+      <div class="product__thumb">
+        <img class="product__img" src="{{ this.img }}" alt="beer" />
+        <p class="product__price">{{ this.price }}</p>
+      </div>
+      <button class="product__hover"></button>
     </div>
     <button class="product__add">Add to cart</button>
   </li>
