@@ -7,7 +7,7 @@
   </head>
   <body>
     <div class="layout">
-      <img class="ref" src="/design/design2.png" />
+      <!-- <img class="ref" src="/design/design2.png" /> -->
       <div class="layout__bg"></div>
       <header class="header">
         <img class="header__logo" src="./images/logo.png" alt="logo" />
@@ -31,13 +31,18 @@
       </aside>
       <main class="main">
         <div class="toolbar">
-          <div class="toolbar__modes">
-            <i class="fas fa-list"></i>
-            <i class="fas fa-th"></i>
+          <div class="modes">
+            <button class="modes__list"></button>
+            <button class="modes__grid"></button>
           </div>
-          <div class="toolbar__result-count"></div>
-          <div class="toolbar__ordering"></div>
+          <p class="toolbar__result-count">Showing 1-9 of 10 results</p>
+          <select class="toolbar__ordering" id="toolbar__ordering" name="order">
+            <option value="default">Default sorting</option>
+            <option value="default">Default sorting</option>
+            <option value="default">Default sorting</option>
+          </select>
         </div>
+        <div class="products"></div>
       </main>
       <footer class="footer">
         <div class="footer__bg"></div>
