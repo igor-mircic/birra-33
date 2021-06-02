@@ -3,7 +3,7 @@
   top: 0;
   left: -5px;
   // display: none;
-  filter: opacity(24%);
+  filter: opacity(87%);
 }
 
 .layout {
@@ -14,11 +14,12 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr) 270px 870px minmax(0, 1fr);
   column-gap: 30px;
-  grid-template-rows: 82px 212px auto 90px 612px;
+  grid-template-rows: 82px 212px auto auto 90px 612px;
   grid-template-areas:
     "h h h h"
     ". . . ."
     ". a m ."
+    ". . m ."
     ". . . ."
     "f f f f";
 

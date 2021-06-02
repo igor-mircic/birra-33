@@ -60,6 +60,40 @@
     }
   }
   & .products {
-    background-color: $clr-yello-500;
+    &__list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 30px;
+    }
+    & .product {
+      display: grid;
+      grid-template-rows: 400px 60px;
+      place-items: center;
+      &__wraper {
+        background-color: $clr-yello-500;
+        height: 100%;
+        width: 100%;
+        display: grid;
+        place-items: center;
+      }
+      &__img {
+        height: 100%;
+        width: 100%;
+      }
+      &__price {
+        color: $clr-orange-400;
+      }
+      &__add {
+        background-color: $clr-orange-300;
+        color: $clr-gray-50;
+        border: none;
+        height: 100%;
+        width: 100%;
+
+        display: grid;
+        place-items: center;
+      }
+    }
   }
 }
