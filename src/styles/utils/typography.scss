@@ -20,16 +20,21 @@ h4,
 h5,
 h6 {
   font-family: Alegreya.$fontName;
-  text-transform: uppercase;
   font-weight: 700;
+}
+
+h3 {
+  font-size: 34px;
 }
 
 h4 {
   font-size: 21px;
+  text-transform: uppercase;
 }
 
 h5 {
   font-size: 18px;
+  text-transform: uppercase;
 }
 
 p,
