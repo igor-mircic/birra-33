@@ -6,7 +6,6 @@ const displayBeer = (beerList) => {
 };
 
 getBeerList().then((data) => {
-  console.log(data);
   let beerList = [];
   for (let i = 0; i < data.length; i++) {
     beerList[i] = {
