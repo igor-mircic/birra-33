@@ -1,12 +1,18 @@
 import products from "../templates/products.handlebars";
-import tmpImg from "../images/beer.png";
+import { getBeerList } from "./services";
 
-let dummyBeerList = [];
-for (let i = 0; i < 9; i++) {
-  dummyBeerList[i] = {
-    img: tmpImg,
-    price: "$195",
-  };
-}
+const displayBeer = (beerList) => {
+  document.querySelector(".products").innerHTML += products(beerList);
+};
 
-document.querySelector(".products").innerHTML += products(dummyBeerList);
+getBeerList().then((data) => {
+  console.log(data);
+  let beerList = [];
+  for (let i = 0; i < data.length; i++) {
+    beerList[i] = {
+      img: data[i].image_url,
+      price: "$" + data[i].abv * 10 + ".99",
+    };
+  }
+  displayBeer(beerList);
+});
