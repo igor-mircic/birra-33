@@ -7,10 +7,30 @@
   ></button>
 </header>
 <main class="modal__content" id="modal-1-content">
-  <p>{{ this.description }}</p>
+  <img class="modal__img" src="{{ this.image_url }}" alt="beer" />
+  <h5>Ingredients</h5>
+  <h6>Yeast: {{ this.ingredients.yeast }}</h6>
+  <h6>Hops</h6>
+  <ul>
+    {{#each this.ingredients.hops}}
+    <li>{{ this.name }}: {{ this.amount.value }} {{ this.amount.unit }}</li>
+    {{/each}}
+  </ul>
+  <h6>Malt</h6>
+  <ul>
+    {{#each this.ingredients.malt}}
+    <li>{{ this.name }}: {{ this.amount.value }} {{ this.amount.unit }}</li>
+    {{/each}}
+  </ul>
+  <h6>Goes nicely with:</h6>
+  <ul>
+    {{#each this.food_pairing}}
+    <li>{{ this }}</li>
+    {{/each}}
+  </ul>
 </main>
 <footer class="modal__footer">
-  <button class="modal__btn modal__btn-primary">Continue</button>
+  <button class="modal__btn modal__btn-primary">Add to cart</button>
   <button
     class="modal__btn"
     data-micromodal-close

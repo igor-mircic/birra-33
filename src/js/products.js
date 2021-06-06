@@ -17,7 +17,7 @@ getBeerList().then((data) => {
       price: "$" + data[i].abv * 10 + ".99",
     };
   }
-  // console.log(data[0]);
+  console.log(data[0]);
   displayBeer(beerList);
 
   const hoverBtns = document.querySelectorAll(".product__hover");
