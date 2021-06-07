@@ -7,27 +7,32 @@
   ></button>
 </header>
 <main class="modal__content" id="modal-1-content">
-  <img class="modal__img" src="{{ this.image_url }}" alt="beer" />
-  <h5>Ingredients</h5>
-  <h6>Yeast: {{ this.ingredients.yeast }}</h6>
-  <h6>Hops</h6>
-  <ul>
-    {{#each this.ingredients.hops}}
-    <li>{{ this.name }}: {{ this.amount.value }} {{ this.amount.unit }}</li>
-    {{/each}}
-  </ul>
-  <h6>Malt</h6>
-  <ul>
-    {{#each this.ingredients.malt}}
-    <li>{{ this.name }}: {{ this.amount.value }} {{ this.amount.unit }}</li>
-    {{/each}}
-  </ul>
-  <h6>Goes nicely with:</h6>
-  <ul>
-    {{#each this.food_pairing}}
-    <li>{{ this }}</li>
-    {{/each}}
-  </ul>
+  <img class="modal__thumb" src="{{ this.image_url }}" alt="beer" />
+  <div class="modal__summary">
+    <h5>Ingredients</h5>
+    <h6>Hops</h6>
+    <ul>
+      {{#each this.ingredients.hops}}
+      <li>{{ this.name }}: {{ this.amount.value }} {{ this.amount.unit }}</li>
+      {{/each}}
+    </ul>
+    <h6>Malt</h6>
+    <ul>
+      {{#each this.ingredients.malt}}
+      <li>{{ this.name }}: {{ this.amount.value }} {{ this.amount.unit }}</li>
+      {{/each}}
+    </ul>
+    <h6>Yeast</h6>
+    <p>{{ this.ingredients.yeast }}</p>
+  </div>
+  <div class="modal__food">
+    <h5>Goes nicely with:</h5>
+    <ul>
+      {{#each this.food_pairing}}
+      <li>{{ this }}</li>
+      {{/each}}
+    </ul>
+  </div>
 </main>
 <footer class="modal__footer">
   <button class="modal__btn modal__btn-primary">Add to cart</button>
