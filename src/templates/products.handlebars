@@ -1,18 +1,12 @@
-<ul class="products__wraper">
-  {{#each this}}
-  <li id="{{ this.PID }}" class="product">
-    <div class="product__featured">
-      <div class="product__thumb">
-        <img class="product__img" src="{{ this.img }}" alt="beer" />
-      </div>
-      <button class="product__hover"></button>
-    </div>
-    <div class="product__content">
-      <h3>{{ this.name }}</h3>
-      <p class="product__description">{{ this.description }}</p>
-      <p class="product__price">{{ this.price }}</p>
-      <button class="product__add">Add to cart</button>
-    </div>
-  </li>
-  {{/each}}
-</ul>
+<div class="product__featured">
+  <div class="product__thumb">
+    <img class="product__img" src="{{ this.img }}" alt="beer" />
+  </div>
+  <button class="product__hover"></button>
+</div>
+<div class="product__content">
+  <h3>{{ this.name }}</h3>
+  <p class="product__description">{{ this.description }}</p>
+  <p class="product__price">{{ this.price }}</p>
+  <button class="product__add">Add to cart</button>
+</div>

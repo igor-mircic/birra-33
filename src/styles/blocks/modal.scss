@@ -56,6 +56,11 @@
     justify-self: center;
   }
 
+  &__footer {
+    display: grid;
+    justify-items: end;
+  }
+
   & h5 {
     color: $clr-orange-400;
     padding-bottom: 1em;

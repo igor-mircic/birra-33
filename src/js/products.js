@@ -1,32 +1,31 @@
-import products from "../templates/products.handlebars";
+import productTemplate from "../templates/products.handlebars";
 import { renderModal } from "./modal";
 import { getBeerList } from "./services";
 
-const displayBeer = (beerList) => {
-  document.querySelector(".products").innerHTML += products(beerList);
-};
-
+const productsWraper = document.querySelector(".products__wraper");
 getBeerList().then((data) => {
   let beerList = [];
+  let beer = {};
   for (let i = 0; i < data.length; i++) {
-    beerList[i] = {
-      PID: "PID-" + data[i].id,
+    beer = {
+      id: data[i].id,
       name: data[i].name,
       description: data[i].description,
       img: data[i].image_url,
       price: "$" + data[i].abv * 10 + ".99",
+      ingredients: data[i].ingredients,
+      food_pairing: data[i].food_pairing,
     };
-  }
-  console.log(data[0]);
-  displayBeer(beerList);
+    beerList[i] = beer;
 
-  const hoverBtns = document.querySelectorAll(".product__hover");
-
-  hoverBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const PID = btn.parentNode.parentNode.id.split("-")[1];
-      let beer = data.find((beer) => beer.id == PID);
-      renderModal(beer);
+    const product = document.createElement("li");
+    product.classList.add("product");
+    product.addEventListener("click", (e) => {
+      if (e.target.className === "product__hover") {
+        renderModal(beer);
+      }
     });
-  });
+    product.innerHTML = productTemplate(beer);
+    productsWraper.appendChild(product);
+  }
 });
