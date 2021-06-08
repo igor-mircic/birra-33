@@ -1,27 +1,15 @@
-import filters from "../templates/filters.handlebars";
+import foodTemplate from "../templates/food.handlebars";
 import * as noUiSlider from "nouislider";
 import * as wNumb from "wnumb";
 
-let context = {
-  food: ["Chicken", "Cake", "Cheese", "Salad"],
-};
+let foodList = ["Chicken", "Cake", "Cheese", "Salad"];
 
-document.querySelector(".filters").innerHTML += filters(context);
-
-// document.getEelemntById("filters").html(Templates["templateFilters"](filters));
-// this.addFiltersListener();
-// addFiltersListener= () => {
-//         const buttons = Array.from(document.querySelectorAll('.view__filters .close'));
-//         buttons.forEach(button = >{
-//             button.addEventListener('click', (e) => {
-//                 toggleFilter(e.target);
-//             });
-//         });
-//     }
-//
+const foodListElement = document.querySelector(".food__list");
+foodList.forEach((item) => {
+  foodListElement.innerHTML += foodTemplate(item);
+});
 
 let priceSlider = document.querySelector(".price__slider");
-let priceSet = document.querySelector(".price__set");
 let priceDisplay = document.querySelector(".price__display");
 
 noUiSlider.create(priceSlider, {
@@ -44,6 +32,4 @@ priceSlider.noUiSlider.on("update.on", () => {
 });
 
 // Read the slider value.
-priceSet.addEventListener("click", function () {
-  console.log(priceSlider.noUiSlider.get());
-});
+// console.log(priceSlider.noUiSlider.get());

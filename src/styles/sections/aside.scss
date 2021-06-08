@@ -39,13 +39,6 @@
     & .price {
       display: grid;
       gap: 16px;
-      &__set {
-        border: none;
-        padding: 16px 35px;
-        justify-self: end;
-        color: $clr-gray-50;
-        background-color: $clr-orange-400;
-      }
       &__display {
         place-self: end;
         color: $clr-brown-400;
@@ -110,6 +103,17 @@
           }
         }
       }
+    }
+    &__buttons {
+      button {
+        display: inline;
+        border: none;
+        padding: 16px 25px;
+        justify-self: end;
+        color: $clr-gray-50;
+        background-color: $clr-orange-400;
+      }
+      padding-bottom: 35px;
     }
   }
 }

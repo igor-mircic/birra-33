@@ -27,7 +27,44 @@
           <h5>My cart</h5>
           <p>No products in the cart.</p>
         </div>
-        <div class="filters"></div>
+        <div class="filters">
+          <div class="name">
+            <h5>Name filter</h5>
+            <input class="name__input" type="text" />
+          </div>
+          <div class="price">
+            <h5>Price filter</h5>
+            <div class="price__slider"></div>
+            <div class="price__display"></div>
+          </div>
+          <div class="date">
+            <h5>Date filter</h5>
+            <label class="date__label" for="date__before">
+              Brewed before:
+            </label>
+            <input
+              type="date"
+              id="date__before"
+              class="date__input"
+              value="1980-07-22"
+            />
+            <label class="date__label" for="date__after"> Brewed after: </label>
+            <input
+              type="date"
+              id="date__after"
+              class="date__input"
+              value="2021-01-01"
+            />
+          </div>
+          <div class="food">
+            <h5 class="food__title">Food filter</h5>
+            <div class="food__list"></div>
+          </div>
+          <div class="filters__buttons">
+            <button class="filters__set">Filter</button>
+            <button class="filters__reset">Reset</button>
+          </div>
+        </div>
       </aside>
       <main class="main">
         <div class="toolbar">
