@@ -4,17 +4,8 @@ import { getBeerList } from "./services";
 
 export const render = (filterValues) => {
   // console.log(filterValues);
-  getBeerList(
-    1,
-    9,
-    filterValues.name,
-    filterValues.price[0],
-    filterValues.price[1],
-    filterValues.date[0],
-    filterValues.date[1],
-    filterValues.food
-  ).then((data) => {
-    console.log(data);
+  getBeerList(1, 9, filterValues).then((data) => {
+    // console.log(data);
     const productsWraper = document.querySelector(".products__wraper");
 
     while (productsWraper.firstChild) {
@@ -22,7 +13,7 @@ export const render = (filterValues) => {
     }
 
     data.forEach((product) => {
-      product.price = "$" + product.abv * 10 + ".99";
+      product.price = "$" + product.abv * 10;
 
       const productElement = document.createElement("li");
       productElement.classList.add("product");
@@ -35,9 +26,9 @@ export const render = (filterValues) => {
 
       productElement.innerHTML = productTemplate(product);
       productsWraper.appendChild(productElement);
-      // console.log(product);
+      console.log(product);
     });
   });
 };
 
-// render();
+render();
