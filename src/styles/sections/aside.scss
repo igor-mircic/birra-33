@@ -112,6 +112,13 @@
         justify-self: end;
         color: $clr-gray-50;
         background-color: $clr-orange-400;
+        transition: transform 80ms ease-in-out;
+        &:hover {
+          transform: scale(1.015);
+        }
+        &:active {
+          transform: scale(0.99);
+        }
       }
       padding-bottom: 35px;
     }

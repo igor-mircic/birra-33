@@ -1,19 +1,18 @@
 const axios = require("axios").default;
 
-export const getBeerList = async (page = 1, per_page = 9, filterValues) => {
+export const getBeerList = async (page = 1, per_page = 9, filters) => {
   let url = "https://api.punkapi.com/v2/beers?";
 
   url += "page=" + page;
   url += "&per_page=" + per_page;
 
-  if (filterValues) {
-    // console.log(filterValues);
-    if (filterValues.name !== "") url += "&beer_name=" + filterValues.name;
-    url += "&abv_gt=" + filterValues.price[0] / 10;
-    url += "&abv_lt=" + filterValues.price[1] / 10;
-    url += "&brewed_after=" + filterValues.date[0];
-    url += "&brewed_before=" + filterValues.date[1];
-    if (filterValues.food !== "any") url += "&food=" + filterValues.food;
+  if (filters) {
+    if (filters.name.value !== "") url += "&beer_name=" + filters.name.value;
+    url += "&abv_gt=" + filters.price.value[0];
+    url += "&abv_lt=" + filters.price.value[1];
+    url += "&brewed_after=" + filters.date.value.after;
+    url += "&brewed_before=" + filters.date.value.before;
+    if (filters.food.value !== "any") url += "&food=" + filters.food.value;
   }
 
   // console.log(url);

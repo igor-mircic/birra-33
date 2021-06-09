@@ -1,10 +1,10 @@
 import productTemplate from "../templates/products.handlebars";
 import { renderModal } from "./modal";
 import { getBeerList } from "./services";
+import { filters } from "./filters";
 
-export const render = (filterValues) => {
-  // console.log(filterValues);
-  getBeerList(1, 9, filterValues).then((data) => {
+const render = (filters) => {
+  getBeerList(1, 9, filters).then((beerList) => {
     // console.log(data);
     const productsWraper = document.querySelector(".products__wraper");
 
@@ -12,23 +12,38 @@ export const render = (filterValues) => {
       productsWraper.removeChild(productsWraper.firstChild);
     }
 
-    data.forEach((product) => {
-      product.price = "$" + product.abv * 10;
+    beerList.forEach((beer) => {
+      beer.price = "$" + beer.abv * 10;
 
       const productElement = document.createElement("li");
       productElement.classList.add("product");
 
       productElement.addEventListener("click", (e) => {
         if (e.target.className === "product__hover") {
-          renderModal(product);
+          renderModal(beer);
         }
       });
 
-      productElement.innerHTML = productTemplate(product);
+      productElement.innerHTML = productTemplate(beer);
       productsWraper.appendChild(productElement);
-      console.log(product);
+      // console.log(product);
     });
   });
 };
 
-render();
+filters.init();
+
+render(filters);
+
+const filtersSet = document.querySelector(".filters__set");
+
+filtersSet.addEventListener("click", () => {
+  render(filters);
+});
+
+const filtersReset = document.querySelector(".filters__reset");
+
+filtersReset.addEventListener("click", () => {
+  filters.reset();
+  render(filters);
+});
