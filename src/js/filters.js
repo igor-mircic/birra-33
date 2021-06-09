@@ -31,7 +31,7 @@ export const filters = {
       return this.slider.noUiSlider.get().map((p) => p / 10);
     },
     reset() {
-      this.slider.noUiSlider.set(this.range.min, this.range.max);
+      this.slider.noUiSlider.set([this.range.min, this.range.max]);
     },
   },
   date: {
