@@ -39,6 +39,13 @@
           </div>
           <div class="date">
             <h5>Date filter</h5>
+            <label class="date__label" for="date__after"> Brewed after: </label>
+            <input
+              type="date"
+              id="date__after"
+              class="date__input"
+              value="1980-07-22"
+            />
             <label class="date__label" for="date__before">
               Brewed before:
             </label>
@@ -46,19 +53,54 @@
               type="date"
               id="date__before"
               class="date__input"
-              value="1980-07-22"
-            />
-            <label class="date__label" for="date__after"> Brewed after: </label>
-            <input
-              type="date"
-              id="date__after"
-              class="date__input"
               value="2021-01-01"
             />
           </div>
           <div class="food">
             <h5 class="food__title">Food filter</h5>
-            <div class="food__list"></div>
+            <div class="food__list">
+              <label for="food__chicken">
+                <input
+                  type="radio"
+                  name="food"
+                  class="food__item"
+                  id="food__chicken"
+                  value="chicken"
+                  checked
+                />
+                Chicken
+              </label>
+              <label for="food__cake">
+                <input
+                  type="radio"
+                  name="food"
+                  class="food__item"
+                  id="food__cake"
+                  value="cake"
+                />
+                Cake
+              </label>
+              <label for="food__cheese">
+                <input
+                  type="radio"
+                  name="food"
+                  class="food__item"
+                  id="food__cheese"
+                  value="cheese"
+                />
+                Cheese
+              </label>
+              <label for="food__salad">
+                <input
+                  type="radio"
+                  name="food"
+                  class="food__item"
+                  id="food__salad"
+                  value="salad"
+                />
+                Salad
+              </label>
+            </div>
           </div>
           <div class="filters__buttons">
             <button class="filters__set">Filter</button>

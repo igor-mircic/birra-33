@@ -14,4 +14,4 @@ import "./js/services";
 
 import "./js/filters";
 import "./js/toolbar";
-import "./js/products";
+import "./js/shop";

@@ -21,7 +21,7 @@ export const getBeerList = async (
   if (brewed_before) url += "&brewed_before=" + brewed_before;
   if (food) url += "&food=" + food;
 
-  console.log(url);
+  // console.log(url);
 
   return axios.get(url).then((response) => response.data);
 };
