@@ -2,7 +2,7 @@ import productTemplate from "../templates/products.handlebars";
 import { renderModal } from "./modal";
 import { getBeerList } from "./services";
 
-getBeerList().then((data) => {
+getBeerList(1, 9, "", 10, 50, "10-2008", "10-2019", "Cake").then((data) => {
   const productsWraper = document.querySelector(".products__wraper");
 
   data.forEach((product) => {
@@ -19,5 +19,6 @@ getBeerList().then((data) => {
 
     productElement.innerHTML = productTemplate(product);
     productsWraper.appendChild(productElement);
+    console.log(product);
   });
 });
