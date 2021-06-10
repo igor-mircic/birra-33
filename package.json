@@ -35,8 +35,10 @@
     "@fontsource/fira-sans": "^4.4.2",
     "@fortawesome/fontawesome-free": "^5.15.3",
     "axios": "^0.21.1",
+    "jquery": "^3.6.0",
     "micromodal": "^0.4.6",
     "nouislider": "^15.1.1",
+    "paginationjs": "^2.1.5",
     "wnumb": "^1.2.0"
   }
 }

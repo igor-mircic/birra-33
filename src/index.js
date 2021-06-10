@@ -10,6 +10,10 @@ import "../node_modules/wnumb/wNumb.min";
 import "../node_modules/micromodal/dist/micromodal";
 import "./js/modal";
 
+// Pagination
+import "../node_modules/paginationjs/dist/pagination";
+import "../node_modules/paginationjs/dist/pagination.css";
+
 import "./js/services";
 
 import "./js/filters";
