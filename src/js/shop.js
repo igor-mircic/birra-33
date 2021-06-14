@@ -26,20 +26,14 @@ const update = () => {
     showNext: true,
     ajax: {
       beforeSend: function () {
-        const loaderWraper = document.createElement("div");
-        loaderWraper.classList.add("loader__wraper");
+        $(".products__wraper").empty();
         const loader = document.createElement("div");
         loader.classList.add("loader");
-        loaderWraper.appendChild(loader);
-        $(".products__wraper").append(loaderWraper);
+        $(".products").prepend(loader);
       },
     },
     callback: function (data) {
-      const productsWraper = document.querySelector(".products__wraper");
-
-      while (productsWraper.firstChild) {
-        productsWraper.removeChild(productsWraper.firstChild);
-      }
+      $(".loader").remove();
 
       data.forEach((item) => {
         item.price = "$" + item.abv * 10;
@@ -54,7 +48,7 @@ const update = () => {
         });
 
         productElement.innerHTML = productTemplate(item);
-        productsWraper.appendChild(productElement);
+        $(".products__wraper").append(productElement);
       });
       // console.log(data);
     },
