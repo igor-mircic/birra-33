@@ -43,9 +43,9 @@ const update = () => {
         productElement.classList.add("product");
 
         productElement.addEventListener("click", (e) => {
-          const target = e.target.className;
-          if (target === "product__hover") renderModal(item);
-          if (target === "product__add") cart.add(item);
+          const t = e.target.className;
+          if (t === "product__hover") renderModal(item);
+          if (t === "product__add") cart.add(item);
         });
 
         productElement.innerHTML = productTemplate(item);

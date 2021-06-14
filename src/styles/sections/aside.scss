@@ -27,7 +27,7 @@
       gap: 20px;
       & .item {
         display: grid;
-        grid-template-columns: 60px 1fr;
+        grid-template-columns: 60px 1fr 30px;
         gap: 12px;
         &__content {
           display: grid;
@@ -53,6 +53,30 @@
           width: 5ch;
           &:focus {
             border-bottom: 2px solid $clr-orange-400;
+          }
+        }
+        &__remove {
+          align-self: start;
+          background: none;
+          border: none;
+          &::before {
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            content: "\f00d";
+            color: $clr-orange-400;
+            font-size: 20px;
+          }
+          &:hover {
+            transform: scale(1.1);
+            transition: transform 80ms ease-in-out;
+            &::before {
+              color: $clr-orange-500;
+              transition: color 100ms ease-in-out;
+            }
+          }
+          &:active {
+            transition: transform 80ms ease-in-out;
+            transform: scale(0.9);
           }
         }
       }
