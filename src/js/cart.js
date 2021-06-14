@@ -10,6 +10,8 @@ const render = (item) => {
   cartItem.innerHTML = itemTemplate(item);
   cartItem.addEventListener("click", (e) => {
     const t = e.target;
+    const index = items.indexOf(item);
+
     if (t.className === "item__quantity") {
       // Update item__price element
       item.quantity = parseInt(t.value);
@@ -17,7 +19,12 @@ const render = (item) => {
       e.path[1].childNodes[3].innerHTML = `${item.quantity} x ` + price;
       // Update total price
       item.totalPrice = item.quantity * item.abv * 10;
-      items[items.indexOf(item)] = item;
+      items[index] = item;
+      store.setItem("cart", JSON.stringify(items));
+      updateTotal();
+    } else if (t.className === "item__remove") {
+      items.splice(index, 1);
+      t.parentNode.remove();
       store.setItem("cart", JSON.stringify(items));
       updateTotal();
     }
@@ -42,7 +49,6 @@ export const add = (item) => {
   store.setItem("cart", JSON.stringify(items));
 
   updateTotal();
-  console.log(total);
 
   render(item);
 };
