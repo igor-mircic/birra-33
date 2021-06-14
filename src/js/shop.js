@@ -13,7 +13,6 @@ const update = () => {
     if (filters.food.value !== "any") url += "&food=" + filters.food.value;
   }
   console.log(url);
-  let totalNumLoc = 9;
   $(".products__pagination").pagination({
     alias: {
       pageSize: "per_page",
@@ -21,20 +20,10 @@ const update = () => {
     },
     dataSource: url,
     locator: "data",
-    totalNumberLocator: function (response) {
-      totalNumLoc += response.length;
-
-      console.log(response.length, totalNumLoc);
-      return totalNumLoc;
-    },
-    totalNumber: 200,
+    totalNumber: 90,
     pageSize: 9,
-    // showPageNumbers: true,
     showPrevious: true,
     showNext: true,
-    // showNavigator: true,
-    showFirstOnEllipsisShow: true,
-    showLastOnEllipsisShow: true,
     ajax: {
       beforeSend: function () {
         $(".products__wraper").html("Loading data ...");

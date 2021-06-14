@@ -1,4 +1,41 @@
 .products {
+  display: grid;
+  &__pagination {
+    margin-top: 15px;
+    justify-self: center;
+    & .paginationjs-prev.disabled,
+    & .paginationjs-next.J-paginationjs-next,
+    & .paginationjs-prev.J-paginationjs-previous,
+    & .paginationjs-ellipsis.disabled {
+      border: none !important;
+      background: none;
+      & a {
+        background: none;
+        &:hover {
+          background-color: $clr-orange-400;
+          color: $clr-gray-50;
+        }
+      }
+    }
+    & .paginationjs-page.J-paginationjs-page {
+      border: none;
+      & a {
+        color: $clr-brown-400 !important;
+        background: none;
+        &:hover {
+          height: 30px;
+          background-color: $clr-orange-400;
+          color: $clr-gray-50 !important;
+          transition: background-color 300ms ease-in-out;
+          transition: color 200ms ease-in-out;
+        }
+      }
+    }
+    & .paginationjs-page.J-paginationjs-page.active a {
+      color: $clr-gray-50 !important;
+      background-color: $clr-orange-400;
+    }
+  }
   & .product {
     background-color: $clr-yello-500;
 
