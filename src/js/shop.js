@@ -13,7 +13,7 @@ const update = () => {
     url += "&brewed_before=" + filters.date.value.before;
     if (filters.food.value !== "any") url += "&food=" + filters.food.value;
   }
-  console.log(url);
+  // console.log(url);
   $(".products__pagination").pagination({
     alias: {
       pageSize: "per_page",

@@ -8,19 +8,22 @@ const render = (item) => {
   cartItem.classList.add("item");
   cartItem.innerHTML = itemTemplate(item);
   $(".cart__list").append(cartItem);
-  console.log(item);
 };
 
 export const add = (item) => {
   items.push(item);
+  console.log(items);
   store.setItem("cart", JSON.stringify(items));
 
   render(item);
 };
 
 export const restore = () => {
-  const items = JSON.parse(store.getItem("cart"));
-  items.forEach((item) => {
-    render(item);
-  });
+  items = JSON.parse(store.getItem("cart"));
+  console.log(items);
+  if (items) {
+    items.forEach((item) => {
+      render(item);
+    });
+  }
 };
