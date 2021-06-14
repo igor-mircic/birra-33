@@ -1,6 +1,7 @@
 import productTemplate from "../templates/products.handlebars";
 import { renderModal } from "./modal";
 import { filters } from "./filters";
+import * as cart from "./cart";
 
 const update = () => {
   let url = "https://api.punkapi.com/v2/beers?";
@@ -42,9 +43,9 @@ const update = () => {
         productElement.classList.add("product");
 
         productElement.addEventListener("click", (e) => {
-          if (e.target.className === "product__hover") {
-            renderModal(item);
-          }
+          const target = e.target.className;
+          if (target === "product__hover") renderModal(item);
+          if (target === "product__add") cart.add(item);
         });
 
         productElement.innerHTML = productTemplate(item);
@@ -56,6 +57,7 @@ const update = () => {
 };
 
 filters.init();
+cart.restore();
 update();
 
 $(".filters__set").on("click", () => {

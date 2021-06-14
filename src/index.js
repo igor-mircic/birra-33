@@ -19,3 +19,4 @@ import "./js/services";
 import "./js/filters";
 import "./js/toolbar";
 import "./js/shop";
+import "./js/cart";

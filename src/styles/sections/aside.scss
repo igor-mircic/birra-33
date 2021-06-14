@@ -1,6 +1,6 @@
 .aside {
   display: grid;
-  grid-template-rows: 186px 1fr;
+  grid-template-rows: auto auto;
   row-gap: 2px;
 
   & h5 {
@@ -15,7 +15,60 @@
 
   & .cart {
     background-color: $clr-yello-500;
-    padding-left: 30px;
+    display: grid;
+    gap: 15px;
+    & h5 {
+      padding-left: 30px;
+    }
+    &__list {
+      padding-left: 30px;
+      display: grid;
+      gap: 20px;
+      & .item {
+        display: grid;
+        grid-template-columns: 60px 1fr;
+        gap: 12px;
+        &__content {
+          display: grid;
+          gap: 8px;
+        }
+        &__image {
+          height: 100px;
+          justify-self: center;
+        }
+        &__name {
+          font-size: 1.2em;
+          color: $clr-brown-400;
+        }
+        &__price {
+          font-size: 0.9em;
+          color: $clr-brown-400;
+        }
+        &__quantity {
+          background: none;
+          outline: none;
+          border: none;
+          border-bottom: 2px solid $clr-orange-500;
+          width: 5ch;
+          &:focus {
+            border-bottom: 2px solid $clr-orange-400;
+          }
+        }
+      }
+    }
+    & .total {
+      padding: 20px;
+      margin-bottom: 20px;
+      border-top: 2px solid $clr-yello-400;
+      border-bottom: 2px solid $clr-yello-400;
+      text-align: end;
+      justify-self: center;
+      width: 80%;
+
+      &__price {
+        color: $clr-orange-400;
+      }
+    }
   }
 
   & .filters {
