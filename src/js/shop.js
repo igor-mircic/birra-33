@@ -26,7 +26,12 @@ const update = () => {
     showNext: true,
     ajax: {
       beforeSend: function () {
-        $(".products__wraper").html("Loading data ...");
+        const loaderWraper = document.createElement("div");
+        loaderWraper.classList.add("loader__wraper");
+        const loader = document.createElement("div");
+        loader.classList.add("loader");
+        loaderWraper.appendChild(loader);
+        $(".products__wraper").append(loaderWraper);
       },
     },
     callback: function (data) {
