@@ -13,11 +13,7 @@ const render = (item) => {
     const index = items.indexOf(item);
 
     if (target.className === "item__quantity") {
-      // Update item__price element
       item.quantity = parseInt(target.value);
-      let price = e.path[1].childNodes[3].innerHTML.split("x")[1];
-      e.path[1].childNodes[3].innerHTML = `${item.quantity} x ` + price;
-      // Update total price
       item.totalPrice = item.quantity * item.abv * 10;
       items[index] = item;
       store.setItem("cart", JSON.stringify(items));
