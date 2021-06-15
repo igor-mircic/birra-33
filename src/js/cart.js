@@ -32,6 +32,17 @@ const render = (item) => {
   $(".cart__list").append(cartItem);
 };
 
+const update = () => {
+  $(".cart__list").empty();
+  if (items) {
+    items.forEach((item) => {
+      render(item);
+    });
+  } else {
+    items = [];
+  }
+};
+
 const updateTotal = () => {
   const totalPriceElement = document.querySelector(".total__price");
   total = 0;
@@ -43,13 +54,12 @@ const updateTotal = () => {
 };
 
 export const add = (item) => {
-  const i = items.indexOf(item);
-  if (i > -1) {
-    console.log(" in if");
-    items[i].quantity += 1;
-    items[i].totalPrice = items[i].quantity * items[i].abv * 10;
+  const itemToUpdate = items.find((el) => el.id === item.id);
+  if (itemToUpdate) {
+    itemToUpdate.quantity += 1;
+    itemToUpdate.totalPrice = itemToUpdate.quantity * itemToUpdate.abv * 10;
+    update();
   } else {
-    console.log(" in else");
     item.quantity = 1;
     item.totalPrice = item.quantity * item.abv * 10;
     items.push(item);
@@ -61,12 +71,7 @@ export const add = (item) => {
 
 export const restore = () => {
   items = JSON.parse(store.getItem("cart"));
-  if (items) {
-    items.forEach((item) => {
-      render(item);
-    });
-  } else {
-    items = [];
-  }
+
+  update();
   updateTotal();
 };
