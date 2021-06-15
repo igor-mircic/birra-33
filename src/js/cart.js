@@ -45,12 +45,19 @@ const update = () => {
 
 const updateTotal = () => {
   const totalPriceElement = document.querySelector(".total__price");
+  const cartEmpty = document.querySelector(".cart__empty");
   total = 0;
   items.forEach((item) => {
     total += item.totalPrice;
   });
   store.setItem("total", total);
-  totalPriceElement.innerHTML = Math.floor(total);
+  if (total > 0) {
+    totalPriceElement.innerHTML = " $" + Math.floor(total);
+    cartEmpty.innerHTML = "";
+  } else {
+    totalPriceElement.innerHTML = " $0";
+    cartEmpty.innerHTML = "No products in the cart.";
+  }
 };
 
 export const add = (item) => {
