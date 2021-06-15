@@ -50,7 +50,6 @@ const updateTotal = () => {
   items.forEach((item) => {
     total += item.totalPrice;
   });
-  store.setItem("total", total);
   if (total > 0) {
     totalPriceElement.innerHTML = " $" + Math.floor(total);
     cartEmpty.innerHTML = "";
