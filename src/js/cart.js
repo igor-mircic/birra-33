@@ -43,14 +43,20 @@ const updateTotal = () => {
 };
 
 export const add = (item) => {
-  item.quantity = 1;
-  item.totalPrice = item.quantity * item.abv * 10;
-  items.push(item);
+  const i = items.indexOf(item);
+  if (i > -1) {
+    console.log(" in if");
+    items[i].quantity += 1;
+    items[i].totalPrice = items[i].quantity * items[i].abv * 10;
+  } else {
+    console.log(" in else");
+    item.quantity = 1;
+    item.totalPrice = item.quantity * item.abv * 10;
+    items.push(item);
+    render(item);
+  }
   store.setItem("cart", JSON.stringify(items));
-
   updateTotal();
-
-  render(item);
 };
 
 export const restore = () => {
