@@ -136,11 +136,12 @@
     }
   }
   &--grid {
+    grid-template-rows: 1450px 1fr;
     & .products {
       &__wraper {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 460px);
         gap: 30px;
       }
     }
