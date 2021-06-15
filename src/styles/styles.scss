@@ -1,0 +1,15 @@
+@import "./utils/reset.scss";
+@import "./utils/typography.scss";
+@import "./utils/colors.scss";
+@import "./utils/shadow.scss";
+@import "./utils/loader.scss";
+@import "./utils/layout.scss";
+
+@import "./sections/header.scss";
+@import "./sections/main.scss";
+@import "./sections/aside.scss";
+@import "./sections/footer.scss";
+
+@import "./blocks/toolbar.scss";
+@import "./blocks/products.scss";
+@import "./blocks/modal.scss";

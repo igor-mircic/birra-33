@@ -15,7 +15,5 @@ export const getBeerList = async (page = 1, per_page = 9, filters) => {
     if (filters.food.value !== "any") url += "&food=" + filters.food.value;
   }
 
-  // console.log(url);
-
   return axios.get(url).then((response) => response.data);
 };

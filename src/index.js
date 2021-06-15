@@ -1,4 +1,4 @@
-import "./styles.scss";
+import "./styles/styles.scss";
 import "../node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
 
 // Slider
