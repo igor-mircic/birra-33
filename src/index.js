@@ -14,8 +14,6 @@ import "./js/modal";
 import "../node_modules/paginationjs/dist/pagination";
 import "../node_modules/paginationjs/dist/pagination.css";
 
-import "./js/services";
-
 import "./js/filters";
 import "./js/toolbar";
 import "./js/shop";

@@ -6,11 +6,16 @@ import * as cart from "./cart";
 const update = () => {
   let url = "https://api.punkapi.com/v2/beers?";
   if (filters) {
+    url +=
+      "&abv_gt=" +
+      filters.price.value[0] +
+      "&abv_lt=" +
+      filters.price.value[1] +
+      "&brewed_after=" +
+      filters.date.value.after +
+      "&brewed_before=" +
+      filters.date.value.before;
     if (filters.name.value !== "") url += "&beer_name=" + filters.name.value;
-    url += "&abv_gt=" + filters.price.value[0];
-    url += "&abv_lt=" + filters.price.value[1];
-    url += "&brewed_after=" + filters.date.value.after;
-    url += "&brewed_before=" + filters.date.value.before;
     if (filters.food.value !== "any") url += "&food=" + filters.food.value;
   }
   $(".products__pagination").pagination({

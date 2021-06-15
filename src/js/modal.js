@@ -5,8 +5,8 @@ const { default: MicroModal } = require("micromodal");
 export const renderModal = (item) => {
   const modalContainer = document.querySelector(".modal__container");
   modalContainer.addEventListener("click", (e) => {
-    const t = e.target;
-    if (t.className === "modal__btn modal__btn-primary") {
+    const target = e.target;
+    if (target.className === "modal__btn modal__btn-primary") {
       cart.add(item);
       MicroModal.close("modal-1");
     }
