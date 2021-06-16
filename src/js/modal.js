@@ -7,7 +7,7 @@ export const renderModal = (item) => {
   modalContainer.addEventListener("click", (e) => {
     const target = e.target;
     if (target.className === "modal__btn modal__btn-primary") {
-      cart.add(item);
+      cart.addItemToCart(item);
       MicroModal.close("modal-1");
     }
   });

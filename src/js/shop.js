@@ -1,9 +1,9 @@
 import productTemplate from "../templates/products.handlebars";
 import { renderModal } from "./modal";
 import { filters } from "./filters";
-import * as cart from "./cart";
+import { addItemToCart, restoreCart } from "./cart";
 
-const update = () => {
+const buildUrl = () => {
   let url = "https://api.punkapi.com/v2/beers?";
   if (filters) {
     url +=
@@ -18,6 +18,40 @@ const update = () => {
     if (filters.name.value !== "") url += "&beer_name=" + filters.name.value;
     if (filters.food.value !== "any") url += "&food=" + filters.food.value;
   }
+  return url;
+};
+
+const addProductsLoader = () => {
+  $(".products__wraper").empty();
+  const loader = document.createElement("div");
+  loader.classList.add("loader");
+  $(".products").prepend(loader);
+};
+
+const removeProductsLoader = () => {
+  $(".loader").remove();
+};
+
+const renderProducts = (products) => {
+  products.forEach((product) => {
+    product.price = "$" + product.abv * 10;
+
+    const productElement = document.createElement("li");
+    productElement.classList.add("product");
+
+    productElement.addEventListener("click", (e) => {
+      const target = e.target.className;
+      if (target === "product__hover") renderModal(product);
+      if (target === "product__add") addItemToCart(product);
+    });
+
+    productElement.innerHTML = productTemplate(product);
+    $(".products__wraper").append(productElement);
+  });
+};
+
+const updateProductsList = () => {
+  let url = buildUrl();
   $(".products__pagination").pagination({
     alias: {
       pageSize: "per_page",
@@ -31,44 +65,26 @@ const update = () => {
     showNext: true,
     ajax: {
       beforeSend: function () {
-        $(".products__wraper").empty();
-        const loader = document.createElement("div");
-        loader.classList.add("loader");
-        $(".products").prepend(loader);
+        addProductsLoader();
       },
     },
     callback: function (data) {
-      $(".loader").remove();
-
-      data.forEach((item) => {
-        item.price = "$" + item.abv * 10;
-
-        const productElement = document.createElement("li");
-        productElement.classList.add("product");
-
-        productElement.addEventListener("click", (e) => {
-          const target = e.target.className;
-          if (target === "product__hover") renderModal(item);
-          if (target === "product__add") cart.add(item);
-        });
-
-        productElement.innerHTML = productTemplate(item);
-        $(".products__wraper").append(productElement);
-      });
+      removeProductsLoader();
+      renderProducts(data);
     },
   });
 };
 
 // init
 filters.init();
-cart.restore();
-update();
+restoreCart();
+updateProductsList();
 
 $(".filters__set").on("click", () => {
-  update();
+  updateProductsList();
 });
 
 $(".filters__reset").on("click", () => {
   filters.reset();
-  update();
+  updateProductsList();
 });

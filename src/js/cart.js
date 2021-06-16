@@ -4,7 +4,7 @@ const store = window.localStorage;
 let items = [];
 let total = 0;
 
-const render = (item) => {
+const renderCart = (item) => {
   const cartItem = document.createElement("div");
   cartItem.classList.add("item");
   cartItem.innerHTML = itemTemplate(item);
@@ -28,11 +28,11 @@ const render = (item) => {
   $(".cart__list").append(cartItem);
 };
 
-const update = () => {
+const updateCart = () => {
   $(".cart__list").empty();
   if (items) {
     items.forEach((item) => {
-      render(item);
+      renderCart(item);
     });
   } else {
     items = [];
@@ -55,25 +55,25 @@ const updateTotal = () => {
   }
 };
 
-export const add = (item) => {
+export const addItemToCart = (item) => {
   const itemToUpdate = items.find((el) => el.id === item.id);
   if (itemToUpdate) {
     itemToUpdate.quantity += 1;
     itemToUpdate.totalPrice = itemToUpdate.quantity * itemToUpdate.abv * 10;
-    update();
+    updateCart();
   } else {
     item.quantity = 1;
     item.totalPrice = item.quantity * item.abv * 10;
     items.push(item);
-    render(item);
+    renderCart(item);
   }
   store.setItem("cart", JSON.stringify(items));
   updateTotal();
 };
 
-export const restore = () => {
+export const restoreCart = () => {
   items = JSON.parse(store.getItem("cart"));
 
-  update();
+  updateCart();
   updateTotal();
 };
